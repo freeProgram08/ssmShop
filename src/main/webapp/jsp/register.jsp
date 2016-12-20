@@ -10,9 +10,10 @@
         <h1 class="text-center">用户注册</h1>
     </div>
     <div class="row">
+        <div class="text-center text-danger" id="error">${requestScope.error}</div>
         <div class="col-xs-offset-4 col-xs-4">
             <%--表单样式：form-inline 所有的form_group排在一行--%>
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="/register" method="post">
                 <div class="form-group">
                     <label class="col-xs-3">用户名</label>
                     <div class="col-xs-9">
