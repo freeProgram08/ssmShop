@@ -15,6 +15,7 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    //注册
     @RequestMapping(path = "/register",
             method = RequestMethod.POST)
     public String register(String userName, String password
@@ -32,5 +33,11 @@ public class UserController {
             return "login";//注册成功
         }
         return "register";//失败返回注册
+    }
+
+    //登录
+    @RequestMapping(path = "/login",method = RequestMethod.POST)
+    public String login(String userName,String password){
+
     }
 }

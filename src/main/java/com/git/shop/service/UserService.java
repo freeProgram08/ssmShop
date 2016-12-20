@@ -32,4 +32,12 @@ public class UserService {
          }
          return  userDao.saveUser(user);//注册成功,保存进数据库
      }
+
+    /**
+     * 用户登录
+     * @param user 待验证登录用户
+     * @param req  存储用户到session
+     * @return  true登录成功  false登录失败
+     */
+     public  boolean login(User user,HttpServletRequest req){}
 }
