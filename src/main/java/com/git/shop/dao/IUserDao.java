@@ -15,5 +15,7 @@ public interface IUserDao {
     //根据Name查询User
     User selectByName(String name);
     //根据User查询User
+    //若user对象属性值不为空
+    //那么就做为查询条件
     List<User> selectByUser(User user);
 }

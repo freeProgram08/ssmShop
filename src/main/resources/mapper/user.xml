@@ -9,8 +9,38 @@
    <result property="age" column="age"/>
    <result property="gender" column="gender"/>
    <result property="hobbies" column="hobbies"/>
+   <result property="password" column="password"/>
 </resultMap>
     <select id="selectAll" resultMap="userMap">
         SELECT *FROM USER
+    </select>
+    <select id="selectById" resultMap="userMap">
+        SELECT *FROM user WHERE id=#{id}
+    </select>
+    <select id="selectByName" resultMap="userMap" >
+        SELECT *FROM user WHERE  user_name=#{name}
+    </select>
+    <select id="selectByUser" resultMap="userMap">
+        SELECT *FROM user
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="userName!=null">
+               and user_name=#{userName}
+            </if>
+            <if test="password!=null">
+               and password=#{password}
+            </if>
+            <if test="age!=null">
+                and  age=#{age}
+            </if>
+            <if test="gender!=null">
+              and  gender=#{gender}
+            </if>
+            <if test="hobbies!=null">
+                and  hobbies=#{hobbies}
+            </if>
+        </where>
     </select>
 </mapper>
