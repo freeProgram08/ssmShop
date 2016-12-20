@@ -37,7 +37,14 @@ public class UserController {
 
     //登录
     @RequestMapping(path = "/login",method = RequestMethod.POST)
-    public String login(String userName,String password){
-
+    public String login(String userName,String password,HttpServletRequest req){
+        User user = new User();
+        user.setPassword(password);
+        user.setUserName(userName);
+        boolean login = userService.login(user, req);
+        if(login){
+            return "content";
+        }
+        return "login";
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * 用户相关业务
@@ -39,5 +40,23 @@ public class UserService {
      * @param req  存储用户到session
      * @return  true登录成功  false登录失败
      */
-     public  boolean login(User user,HttpServletRequest req){}
+     public  boolean login(User user,HttpServletRequest req){
+         if(user==null){
+             req.setAttribute("error","用户名或密码不能为空");
+             return false;
+         }
+         User temp = userDao.selectByName(user.getUserName());
+         if(temp==null){
+             req.setAttribute("error","用户不存在");
+             return false;
+         }
+         if(!temp.getPassword().equals(user.getPassword())){
+             req.setAttribute("error","密码错误");
+             return false;
+         }
+         HttpSession session = req.getSession();
+         temp.setPassword("");
+         session.setAttribute("user",temp);
+         return true;
+     }
 }

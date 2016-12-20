@@ -10,19 +10,20 @@
         <h1 class="text-center">用户登录</h1>
     </div>
     <div class="row">
+        <div class="text-center text-danger" id="error">${requestScope.error}</div>
         <div class="col-xs-offset-4 col-xs-4">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="/login" method="post">
                 <div class="form-group">
                 <label class="col-xs-3">用户名</label>
                 <div class="col-xs-9">
-                    <input class="form-control">
+                    <input class="form-control" name="userName">
                 </div>
             </div>
 
                 <div class="form-group">
                     <label class="col-xs-3">密码</label>
                     <div class="col-xs-9">
-                        <input class="form-control">
+                        <input class="form-control" name="password">
                     </div>
                 </div>
 
