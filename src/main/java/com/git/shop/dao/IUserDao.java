@@ -18,4 +18,11 @@ public interface IUserDao {
     //若user对象属性值不为空
     //那么就做为查询条件
     List<User> selectByUser(User user);
+
+    /**
+     * 保存user对象到数据库
+     * @param user 待保存user对象
+     * @return true保存成 false保存失败
+     */
+    boolean saveUser(User user);
 }

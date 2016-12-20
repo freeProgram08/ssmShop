@@ -46,4 +46,21 @@ public class IUserDaoTest  extends BaseTest{
         List<User> result = userDao.selectByUser(user);
         Assert.isTrue(result!=null||result.size()!=0,"根据user条件查询异常");
     }
+    @Test
+    public void saveUser() {
+        User user = new User();
+        user.setPassword("333");
+        user.setUserName("die");
+        user.setHobbies("打球");
+        user.setAge(22);
+        user.setGender(false);
+        List<User> list = userDao.selectAll();
+        int startCount=list.size();//刚开始记录数
+        System.out.println(startCount);
+        boolean b = userDao.saveUser(user);
+        list = userDao.selectAll();
+        int endCount=list.size();//保存后记录数
+        System.out.println(endCount);
+        Assert.isTrue(endCount-startCount>0,"保存数据失败");
+    }
 }

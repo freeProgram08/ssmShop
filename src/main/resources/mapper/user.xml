@@ -43,4 +43,8 @@
             </if>
         </where>
     </select>
+    <insert id="saveUser" >
+        INSERT  INTO user(user_name,password,age,hobbies,gender)
+        VALUES (#{userName},#{password},#{age},#{hobbies},gender)
+    </insert>
 </mapper>
