@@ -46,4 +46,15 @@ public class IGoodsDaoTest extends BaseTest {
         //判断预期值
         Assert.assertTrue("根据id修改商品信息失败",update);
     }
+    @Test
+    public void selectGoodsByTypeAndNameTest(){
+        Goods goods = new Goods();
+        goods.setName("测试");
+        goods.setType("测试");
+        Goods result = goodsDao.
+                selectGoodsByTypeAndName(goods);
+        //判断预期值
+        Assert.assertTrue("根据商品名，类型查询失败",result!=null);
+
+    }
 }

@@ -38,4 +38,8 @@
         </set>
         WHERE id=#{id}
     </update>
+
+    <select id="selectGoodsByTypeAndName" resultMap="goodsMap">
+        SELECT *FROM goods WHERE goods_name=#{name} and `type`=#{type}
+    </select>
     </mapper>

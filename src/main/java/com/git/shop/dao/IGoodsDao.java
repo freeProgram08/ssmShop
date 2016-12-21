@@ -35,4 +35,12 @@ public interface IGoodsDao {
      * @return  true更改成功  false更改失败
      */
     boolean update(Goods goods);
+
+    /**
+     * 根据商品的类型，商品做查询
+     * 注：type，name值不能为空
+     * @param goods 包含type，name信息的商品对象
+     * @return  null未找到匹配商品  非null 找到匹配商品
+     */
+   Goods selectGoodsByTypeAndName(Goods goods);
 }
