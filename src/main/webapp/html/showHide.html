@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery显示隐藏</title>
+   <!-- js组件导入必须用<script></script> 不能<script/>-->
+    <script src="../js/jquery-1.12.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          $("button").click(function () {
+              $("#ss").slideDown("slow",function () {
+                  alert("你找到我了");
+              }).css("color","red");
+          })
+        })
+function foo() {
+    alert("jquery导入成功");
+    var ss = document.getElementById("ss");
+    alert(ss.innerText);
+}
+function clickTest() {
+    var ss = document.getElementById("ss");
+    ss.style.display="none";
+}
+    </script>
+</head>
+<!--标签加载事件，在标签内容加载完以后调用绑定方法-->
+<!--<body  onload="foo()">-->
+<body>
+<div id="ss" style="display: none">你好</div>
+<!--js绑定
+<button onclick="clickTest()">点我</button>-->
+<button >点我</button>
+</body>
+</html>

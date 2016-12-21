@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单导航选中效果</title>
+    <script src="../js/jquery-1.12.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("font").hover(function () {
+                $("ul").slideDown("slow")
+                $("li").click(function () {
+                    /*触发该事件的对象本身*/
+                    $("li").css("background-color","white")
+                    $(this).css("background-color","red")
+                })
+            })
+            $("div").leave(function () {
+                $("ul").slideUp("slow")
+            })
+
+        })
+    </script>
+</head>
+<body>
+<div style="width: 200px">
+<font>显示</font>
+<ul style="display: none">
+    <li>数学</li>
+    <li>语文</li>
+    <li>英语</li>
+</ul>
+</div>
+</body>
+</html>
