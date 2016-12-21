@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.git.shop.dao.IGoodsDao">
+    <resultMap id="goodsMap" type="com.git.shop.entity.Goods">
+        <id property="id" column="id"/>
+        <result property="name" column="goods_name"/>
+        <result property="price" column="price"/>
+        <result property="type" column="type"/>
+    </resultMap>
+    <insert id="insert">
+        INSERT INTO goods(goods_name,price,`type`) VALUES (#{name},#{price},#{type})
+    </insert>
+
+    <delete id="deleteById">
+        DELETE FROM goods WHERE id=#{id}
+    </delete>
+
+    <select id="selectAll" resultMap="goodsMap">
+        SELECT *FROM goods
+    </select>
+<!--    若修改部分sql需动态生成
+    那么set关键字用<set></set>代替
+    中间动态拼接，逗号必须放在可能存在的语句最后-->
+    <update id="update">
+        UPDATE goods
+        <set>
+        <if test="name!=null">
+            goods_name=#{name},
+        </if>
+        <if test="price!=null">
+           price=#{price},
+        </if>
+        <if test="type!=null">
+            `type`=#{type}
+        </if>
+        </set>
+        WHERE id=#{id}
+    </update>
+    </mapper>
