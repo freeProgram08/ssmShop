@@ -55,6 +55,5 @@ public class IGoodsDaoTest extends BaseTest {
                 selectGoodsByTypeAndName(goods);
         //判断预期值
         Assert.assertTrue("根据商品名，类型查询失败",result!=null);
-
     }
 }
