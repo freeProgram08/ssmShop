@@ -8,16 +8,16 @@
         $(document).ready(function () {
             $("font").hover(function () {
                 $("ul").slideDown("slow")
-                $("li").click(function () {
-                    /*触发该事件的对象本身*/
-                    $("li").css("background-color","white")
-                    $(this).css("background-color","red")
-                })
             })
-            $("div").leave(function () {
+            $("li").click(function () {
+                /*触发该事件的对象本身*/
+                $("li").css("background-color","white")
+                $(this).css("background-color","red")
+            })
+            /*mouseleave jQuery标签对象鼠标离开事件*/
+            $("div").mouseleave(function () {
                 $("ul").slideUp("slow")
             })
-
         })
     </script>
 </head>
