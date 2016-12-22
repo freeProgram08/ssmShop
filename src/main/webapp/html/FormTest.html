@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery表单验证</title>
+    <script type="text/javascript" src="../js/jquery-1.12.3.min.js"></script>
+    <script>
+        $("body").ready(function () {
+            $("form").submit(function (e) {
+
+                /* jquery高级筛选通过属性值筛选
+                 [属性名=值]*/
+                /*val()只对input标签有效，获取的是input的输入框值
+                * val(值)将input标签的值更改成新的值*/
+                var name = $("input[name='name']").val();
+                 var pass1=$("input[name='pass1']").val();
+                 var pass2=$("input[name='pass2']").val();
+                if(isEmpty(name)){
+                    e.preventDefault();//阻止事情默认行为
+                    /* 给标签添加文字内容  innerText*/
+                    $("#error").text("用户名不能为空")
+                      return;
+                }
+                if(isEmpty(pass1)||isEmpty(pass2)){
+                    e.preventDefault();//阻止事情默认行为
+                    /* 给标签添加文字内容  innerText*/
+                    $("#error").text("密码不能为空")
+                    return;
+                }
+                if(pass1!=pass2){
+                    e.preventDefault();//阻止事情默认行为
+                    /* 给标签添加文字内容  innerText*/
+                    $("#error").text("两次密码输入不一致")
+                    return;
+                }
+                alert("验证通过");
+            })
+        })
+      /*  空返回true 非空返回false*/
+        function isEmpty(str) {
+            if(str==null||str==undefined||str==''){
+                return true;
+            }
+            return false;
+        }
+    </script>
+</head>
+<body>
+<div id="error"></div>
+<form>
+    姓名： <input name="name"><br/>
+    密码： <input name="pass1"><br/>
+    再次密码： <input name="pass2"><br/>
+    <button type="submit">提交</button>
+</form>
+</body>
+</html>

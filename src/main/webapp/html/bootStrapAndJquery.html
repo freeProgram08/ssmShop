@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootStrap动态组件，模态框</title>
+    <!--导入css组件-->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <!--jquery依赖要放在功能js前，原因html是从上到下加载的-->
+    <!-- 导入jquery依赖-->
+    <script type="text/javascript" src="../js/jquery-1.12.3.min.js"></script>
+    <!--导入动态功能js库-->
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<button type="button" class="btn btn-primary" id="show">点我</button>
+
+<div class="modal fade" id="modal"  >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"><span>&times;</span></button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+    $(document).ready(function () {
+/*        弹出框选项加载
+        backdrop设置是否点击框外自动关闭
+        true 点击框外自动关闭
+        static 点击框外无效果
+        keyboard 是否开启键盘esc关闭功能  true 开启 false 关闭
+        show 是否在加载完后直接显示  true 显示  false 不显示
+        remote 只在需发送请求反馈内容时生效。
+        */
+        $("#modal").modal({
+            backdrop:"static",
+            keyboard:false,
+            show:false
+        })
+        /*绑定点击事件，激活显示方法*/
+        $("#show").click(function () {
+           /* show显示弹框，hide隐藏弹框*/
+            $("#modal").modal("show");
+        })
+        $(".close").click(function () {
+            $("#modal").modal("hide");
+        })
+        $(".btn-default").click(function () {
+            $("#modal").modal("hide");
+        })
+    })
+</script>
+</body>
+</html>

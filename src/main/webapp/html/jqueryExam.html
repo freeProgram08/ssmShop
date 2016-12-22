@@ -2,13 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--导入jquery组件-->
+    <script type="text/javascript" src="../js/jquery-1.12.3.min.js"></script>
+    <script>
+        /* body标签加载事件*/
+        /*$("选择器")  $(js对象)
+         得到jquery标签对象  跟js的标签对象不同*/
+        /*    ready 相当于js的标签对象的onload方法*/
+        /*         document.onload=function () {
+
+         }*/
+        $("body").ready(function () {
+            /*   jQuery点击事件 click*/
+            $("font").click(function () {
+                /* jquery 显示效果方法 show显示  hide 隐藏 toggle 代表在两种互补的效果间切换*/
+                $("div").show();
+            })
+            /*jQuery 鼠标悬停事件 hover */
+            $("p").hover(function () {
+                /* this js对象本身*/
+                /*jQuery样式操作方法 css(样式属性名) 取出该属性值*/
+                /*    css(样式属性名,样式属性值) 样式赋值方法*/
+                $("p").css("background-color","white")
+                $(this).css("background-color","blue")
+            },function () {
+
+            })
+        })
+    </script>
     <title>jquery练习</title>
 </head>
 <body>
 <!--要求：当点击点我，显示div
 当移动到选项上时，选项变蓝色-->
 <font>点我</font>
-<div style="display: none">
+<!--<div style="display: none">-->
+<div  style="width: 100px;">
     <p>选项1</p>
     <p>选项2</p>
     <p>选项3</p>
