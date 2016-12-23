@@ -66,4 +66,10 @@ public class IGoodsDaoTest extends BaseTest {
         //判断预期值
         Assert.assertTrue("根据商品名，类型查询失败",result!=null);
     }
+    @Test
+    public void selectGoodsByIdTest(){
+        Goods goods = goodsDao.selectGoodsById(1);
+        //判断预期值  非空断言   null测试不通过  非null测试通过
+        Assert.assertNotNull("根据id查询商品错误",goods);
+    }
 }

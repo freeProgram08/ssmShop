@@ -44,10 +44,17 @@ public interface IGoodsDao {
     boolean update(Goods goods);
 
     /**
-     * 根据商品的类型，商品做查询
+     * 根据商品的类型，商品名做查询
      * 注：type，name值不能为空
      * @param goods 包含type，name信息的商品对象
      * @return  null未找到匹配商品  非null 找到匹配商品
      */
    Goods selectGoodsByTypeAndName(Goods goods);
+
+    /**
+     * 根据商品id，查询对应商品
+     * @param id  id值
+     * @return null 未找到
+     */
+    Goods selectGoodsById(Integer id);
 }

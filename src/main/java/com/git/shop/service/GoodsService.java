@@ -75,4 +75,17 @@ public class GoodsService {
         //有多个id
         return  goodsDao.deleteByIds(ids);
     }
+
+    /**
+     * 根据id值查询对应商品信息
+     * @param id  id值
+     * @return  null没有
+     */
+    public Goods   searchGoodsById(Integer id){
+        if(id==null){
+            return null;//没有
+        }
+        //返回dao查询结果
+        return goodsDao.selectGoodsById(id);
+    }
 }

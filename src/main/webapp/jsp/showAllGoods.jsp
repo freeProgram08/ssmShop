@@ -43,6 +43,7 @@
                     <td>${goods.type}</td>
                     <td>${goods.price}</td>
                     <td><a href="/deleteGoods?id=${goods.id}">删除</a></td>
+                    <td><a href="/editGoods?id=${goods.id}">修改</a></td>
                 </tr>
             </c:forEach>
         </table>

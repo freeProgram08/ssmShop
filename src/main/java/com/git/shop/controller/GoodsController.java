@@ -62,5 +62,11 @@ public class GoodsController {
         goodsService.deleteAllByIds(idsList);
         return "redirect:/showGoods";
     }
+    @RequestMapping(path = "/editGoods",method = RequestMethod.GET)
+    public String editGoods(Integer id,HttpServletRequest req){
+        Goods goods = goodsService.searchGoodsById(id);
+        req.setAttribute("goods",goods);
+        return "editGoods";
+    }
 }
 
