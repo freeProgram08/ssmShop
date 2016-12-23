@@ -88,4 +88,27 @@ public class GoodsService {
         //返回dao查询结果
         return goodsDao.selectGoodsById(id);
     }
+
+    /**
+     * 根据id值修改对应商品信息
+     * 注：商品id不能为空
+     * @param goods  带id值的商品对象
+     * @return true 修改成功  false 修改失败
+     */
+    public  boolean editGoodsById(Goods goods,HttpServletRequest req){
+        if(goods==null){
+            req.setAttribute("error","空值异常");
+            return false;//修改失败
+        }
+        //通过目前的的
+        Goods temp = goodsDao.selectGoodsByTypeAndName(goods);
+        //修改失败情况
+        //查到对应商品，且不是本身
+        if(temp!=null&&temp.getId()!=goods.getId()){
+            req.setAttribute("error","修改后商品与原有商品冲突");
+            return false;
+        }
+        //调用dao执行修改
+       return goodsDao.update(goods);
+    }
 }

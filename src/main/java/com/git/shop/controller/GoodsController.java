@@ -68,5 +68,24 @@ public class GoodsController {
         req.setAttribute("goods",goods);
         return "editGoods";
     }
+
+    @RequestMapping(path = "/editGoods",method = RequestMethod.POST)
+    public String editGoods(HttpServletRequest req,Integer id,
+                            String name,Double price,String type){
+        Goods goods = new Goods();
+        goods.setPrice(price);
+        goods.setType(type);
+        goods.setName(name);
+        goods.setId(id);
+        boolean result = goodsService.editGoodsById(goods, req);
+        if(result){
+            //修改成功，重定向到查询所有服务
+            return "redirect:/showGoods";
+        }
+         //保留修改状态 必须
+        req.setAttribute("goods",goods);
+        //传递请求，显示错误信息
+      return "editGoods";
+    }
 }
 
