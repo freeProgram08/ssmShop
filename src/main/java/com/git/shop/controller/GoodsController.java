@@ -5,9 +5,12 @@ import com.git.shop.service.GoodsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -42,6 +45,22 @@ public class GoodsController {
         List<Goods> result = goodsService.showAllGoods();
         req.setAttribute("goodsList",result);
         return "showAllGoods";
+    }
+    @RequestMapping(path="/deleteGoods" )
+    /*springmvc 默认的参数声明都是需要填值的 required 默认值为true
+     若想参数可以为空，需要更改required属性为false*/
+    public  String deleteGoods(@RequestParam(required = false) Integer id,
+                               @RequestParam(required = false)Integer [] ids){
+        List<Integer> idsList = new ArrayList<>();
+        if(id==null){//不是删除单个
+            //addAll(待添加的集合，值集合)
+            Collections.addAll(idsList,ids);
+        }else{
+            Collections.addAll(idsList,id);
+        }
+        //调用删除业务
+        goodsService.deleteAllByIds(idsList);
+        return "redirect:/showGoods";
     }
 }
 
