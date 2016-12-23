@@ -58,4 +58,21 @@ public class GoodsService {
         }
         return result;//有商品
     }
+
+    /**
+     * 根据id集合进行批量删除
+     * @param ids 待删除id集合
+     * @return  true删除成功，false删除失败
+     */
+    public boolean deleteAllByIds(List<Integer> ids){
+        if(ids==null){
+            return false;
+        }
+        //只有一个id
+        if(ids.size()==1){
+            return goodsDao.deleteById(ids.get(0));
+        }
+        //有多个id
+        return  goodsDao.deleteByIds(ids);
+    }
 }

@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,6 +30,15 @@ public class IGoodsDaoTest extends BaseTest {
         boolean b = goodsDao.deleteById(1);
         //预期结果  排除逻辑错误
         Assert.assertTrue("根据id删除商品信息失败",b);
+    }
+
+    @Test
+    public void deleteByIdsTest(){
+       List ids = new ArrayList();
+        ids.add(1);
+        boolean b = goodsDao.deleteByIds(ids);
+        //预期结果  排除逻辑错误
+        Assert.assertTrue("根据id集合删除商品信息失败",b);
     }
     @Test
     public void selectAllTest(){

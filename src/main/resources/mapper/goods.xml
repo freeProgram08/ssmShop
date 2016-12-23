@@ -16,7 +16,20 @@
     <delete id="deleteById">
         DELETE FROM goods WHERE id=#{id}
     </delete>
-
+    <!--in 等同于相等匹配，将每一项用或拼接-->
+     <delete id="deleteByIds">
+            DELETE FROM goods WHERE id in
+/*         item属性 单项元素的别名
+         index属性 下标值别名
+         collection属性 被取值的集合变量名
+         open 拼接开始的前缀
+         separator 每一项之间的分隔
+         close 拼接结束的后缀*/
+         <foreach item="item" index="index" collection="ids"
+                  open="(" separator="," close=")">
+             #{item}
+         </foreach>
+     </delete>
     <select id="selectAll" resultMap="goodsMap">
         SELECT *FROM goods
     </select>

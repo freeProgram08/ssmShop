@@ -1,6 +1,7 @@
 package com.git.shop.dao;
 
 import com.git.shop.entity.Goods;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -21,6 +22,12 @@ public interface IGoodsDao {
      * @return  true删除成功 false删除失败
      */
     boolean deleteById(Integer id);
+    /**
+     * 根据id集合删除商品
+     * @param ids 筛选条件id集合值
+     * @return  true删除成功 false删除失败
+     */
+    boolean deleteByIds(@Param("ids") List<Integer>ids);
 
     /**
      * 查询所有商品
