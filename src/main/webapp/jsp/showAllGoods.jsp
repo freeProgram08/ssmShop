@@ -26,6 +26,8 @@
 <body>
 <div class="container-fluid">
     <div class="row">
+        <form action="/deleteGoods" method="post">
+            <input type="submit" value="删除选中项" class="btn btn-primary">
         <table class="table">
             <tr>
                 <th><input type="checkbox" id="checkAll">编号</th>
@@ -36,7 +38,7 @@
             <c:forEach items="${requestScope.goodsList}" var="goods">
                 <tr>
                         <%--取的是var定义的变量的值--%>
-                    <td><input type="checkbox">${goods.id}</td>
+                    <td><input type="checkbox" name="ids" value="${goods.id}">${goods.id}</td>
                     <td>${goods.name}</td>
                     <td>${goods.type}</td>
                     <td>${goods.price}</td>
@@ -44,6 +46,7 @@
                 </tr>
             </c:forEach>
         </table>
+        </form>
     </div>
 </div>
 
