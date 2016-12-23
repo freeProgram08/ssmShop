@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 商品业务
@@ -43,5 +44,18 @@ public class GoodsService {
         }
         //执行sql保存
         return goodsDao.insert(goods);//保存成功
+    }
+
+    /**
+     * 查询当前已有的所有商品
+     * @return  null 无商品
+     */
+    public List<Goods> showAllGoods(){
+        //执行dao方法，查询所有商品
+        List<Goods> result = goodsDao.selectAll();
+        if(result==null||result.size()==0){
+            return null;//没有商品
+        }
+        return result;//有商品
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 负责商品 相关业务分配
@@ -27,12 +28,20 @@ public class GoodsController {
         //执行商品保存业务
         boolean save = goodsService.save(goods, req);
         if(save){
-            //保存成功重定向到查询所有页面
+            //保存成功重定向到查询所有商品服务
             return "redirect:/showGoods";
         }else{
             //传递请求到jsp页面
             return "addGoods";
         }
+    }
+
+    @RequestMapping(path = "/showGoods",
+            method = RequestMethod.GET)
+    public  String showAllGoods(HttpServletRequest req){
+        List<Goods> result = goodsService.showAllGoods();
+        req.setAttribute("goodsList",result);
+        return "showAllGoods";
     }
 }
 
