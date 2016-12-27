@@ -21,6 +21,13 @@
         .midAlign {
             margin-top: 50px;
         }
+        ul li{
+            list-style-type: none;
+        }
+        .goods img{
+            width: 180px;
+            height: 180px;
+        }
     </style>
 </head>
 
@@ -102,7 +109,7 @@ container-fluid 不固定大小的容器(支持百分比)
                         <li>
                             <a class="text-muted">牛仔裤</a></li>
                         <li>
-                            <a class="text-muted" >热水袋</a></li>
+                            <a class="text-muted">热水袋</a></li>
                     </ul>
                 </div>
             </form>
@@ -123,23 +130,19 @@ container-fluid 不固定大小的容器(支持百分比)
 
     <div class="row">
         <div class="col-xs-offset-1 col-xs-11">
-            <table class="table">
-                <c:forEach items="${goodsList}" var="goods" varStatus="index">
-                    <c:if test="${index.index==0}">
-                        <tr>
-                    </c:if>
-                       <td>
-                           <dd>
-                           <dt><img src="/img/mao.png"></dt>
-                               <dt>${goods.name}</dt>
-                               <dt>${goods.price}</dt>
-                           </dd>
-                       </td>
-                        <c:if test="${(index.index+1)%4==0&&index.index!=0}">
-                    </tr>
-                    <tr>
-                        </c:if>
-                </c:forEach>
+            <div class="row">
+                <ul>
+                    <c:forEach items="${goodsList}" var="goods">
+                        <li class="col-xs-3 goods">
+                        <dd>
+                        <dt><img src="/img/mao.png"></dt>
+                        <dt>${goods.name}</dt>
+                        <dt>${goods.price}</dt>
+                        </dd>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </div>
             </table>
         </div>
     </div>
