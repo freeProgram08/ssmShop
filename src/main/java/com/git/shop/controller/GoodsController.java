@@ -87,5 +87,13 @@ public class GoodsController {
         //传递请求，显示错误信息
       return "editGoods";
     }
+
+    @RequestMapping(path = "/home",
+            method = RequestMethod.GET)
+    public  String index(HttpServletRequest req){
+        List<Goods> result = goodsService.showAllGoods();
+        req.setAttribute("goodsList",result);
+        return "home";
+    }
 }
 
