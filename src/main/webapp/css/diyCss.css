@@ -1,0 +1,16 @@
+/*取消默认内外边距*/
+.noPaddingMargin {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.midAlign {
+    margin-top: 50px;
+}
+ul li{
+    list-style-type: none;
+}
+.goods img{
+    width: 180px;
+    height: 180px;
+}

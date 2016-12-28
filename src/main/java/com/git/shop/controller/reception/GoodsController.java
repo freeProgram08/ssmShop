@@ -26,4 +26,11 @@ public class GoodsController {
         return "home";
     }
 
+    @RequestMapping(path = "/showGoodsById",method = RequestMethod.GET)
+    public String  showGoodById(Integer id,HttpServletRequest req){
+        //调用业务
+        Goods goods = goodsService.searchGoodsById(id);
+        req.setAttribute("goods",goods);
+        return "showGoods";
+    }
 }
