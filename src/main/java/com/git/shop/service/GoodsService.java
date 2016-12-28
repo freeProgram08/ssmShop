@@ -111,4 +111,17 @@ public class GoodsService {
         //调用dao执行修改
        return goodsDao.update(goods);
     }
+
+    /**
+     * 根据查询条件 筛选出符合条件的商品集合
+     * @param goodsName 待查询的条件
+     * @return null 无匹配商品
+     */
+    public List<Goods> searchGoods(String goodsName){
+        if(goodsName==null){//条件不存在，返回所有商品
+         return goodsDao.selectAll();
+        }
+        //根据条件查询商品
+        return goodsDao.selectGoodsByStr("%"+goodsName+"%");
+    }
 }

@@ -59,4 +59,9 @@
     <select id="selectGoodsById" resultMap="goodsMap">
         SELECT *FROM goods WHERE id=#{id}
     </select>
+
+    <select id="selectGoodsByStr" resultMap="goodsMap">
+          SELECT *FROM goods WHERE goods_name LIKE  #{goodsName}
+          OR   `type` LIKE  #{goodsName}
+    </select>
     </mapper>

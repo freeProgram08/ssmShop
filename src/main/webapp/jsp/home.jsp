@@ -75,12 +75,12 @@ container-fluid 不固定大小的容器(支持百分比)
             <img alt="图片不存在" src="../img/mao.png" style="height: 130px">
         </div>
         <div class="col-xs-offset-1 col col-xs-6  ">
-            <form class="form-horizontal midAlign">
+            <form class="form-horizontal midAlign" action="/searchGoods" method="post">
                 <div class="form-group">
                     <div class="input-group">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="goodsName">
                         <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">搜索</button>
+                        <button class="btn btn-primary" type="submit">搜索</button>
                     </span>
                     </div><!-- /input-group -->
                 </div>
@@ -132,8 +132,8 @@ container-fluid 不固定大小的容器(支持百分比)
         <div class="col-xs-offset-1 col-xs-11">
             <div class="row">
                 <ul>
-                    <c:forEach items="${goodsList}" var="goods">
-                        <li class="col-xs-3 goods">
+                    <c:forEach items="${requestScope.goodsList}" var="goods">
+                        <li class="col-xs-2 goods">
                         <dd>
                         <dt><img src="/img/mao.png"></dt>
                         <dt>${goods.name}</dt>

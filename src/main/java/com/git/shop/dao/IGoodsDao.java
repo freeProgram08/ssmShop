@@ -57,4 +57,12 @@ public interface IGoodsDao {
      * @return null 未找到
      */
     Goods selectGoodsById(Integer id);
+
+    /**
+     * 根据条件 匹配商品名，类型
+     * 筛选符合条件的商品集合
+     * @param goodsName 匹配条件
+     * @return  null 无匹配商品
+     */
+    List<Goods>  selectGoodsByStr(String goodsName);
 }
