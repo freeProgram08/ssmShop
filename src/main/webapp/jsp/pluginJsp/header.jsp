@@ -75,16 +75,5 @@
         </form>
     </div>
 </div>
-<!--  排序栏-->
-<div class="row">
-    <div class="col-xs-offset-1 col-xs-11">
-        <ul class="list-inline">
-            <li>综合</li>
-            <li>人气</li>
-            <li>销量</li>
-            <li>价格</li>
-        </ul>
-    </div>
 
-</div>
 
