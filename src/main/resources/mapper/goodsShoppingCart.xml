@@ -13,6 +13,7 @@
         <result property="count" column="count"/>
         <result property="state" column="state"/>
     </resultMap>
+
     <insert id="insert">
         INSERT  INTO goods_shopping_cart
         (user_id,goods_id,goods_name,goods_type,goods_price,`count`,state)

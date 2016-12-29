@@ -48,7 +48,7 @@
                     data-spm="1997525049">
                     <div class="menu-hd">
                         <span class="g-icon"></span><span>购物车</span>
-                        <strong class="h">3</strong>
+                        <strong class="h">${sessionScope.count}</strong>
                         <span class="arrow-icon-wrapper">
                             <span class="g-icon arrow-icon"></span></span>
                     </div>
@@ -116,7 +116,7 @@
                     <ul class="switch-cart">
                         <li class="btn-switch-cart switch-cart-0 current">
                             <a class="J_MakePoint">
-                                <em>全部商品</em><span class="number">3</span><span class="pipe"></span>
+                                <em>全部商品</em><span class="number">${sessionScope.count}</span><span class="pipe"></span>
                             </a>
                         </li>
                         <li class="btn-switch-cart switch-cart-2 ">
@@ -266,7 +266,7 @@
                                                                 <div class="item-amount ">
                                                                     <a href="#" class="J_Minus no-minus">-</a>
                                                                     <input
-                                                                        type="text" value="1"
+                                                                        type="text" value="${cart.count}"
                                                                         class="text text-amount J_ItemAmount">
                                                                     <a href="#" class="J_Plus plus">+</a>
                                                                 </div>
