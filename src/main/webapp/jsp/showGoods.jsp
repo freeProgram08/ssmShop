@@ -28,7 +28,15 @@
                 <p class="list-group"><span>累计评价 </span><span>999</span></p>
             </div>
             <hr/>
-            <p><button class="btn btn-default">加入购物车</button></p>
+            <p>
+                <form action="/addShoppingCart" method="post">
+            <input type="hidden" name="id" value="${requestScope.goods.id}">
+            <input type="hidden" name="name" value="${requestScope.goods.name}">
+            <input type="hidden" name="type" value="${requestScope.goods.type}">
+            <input type="hidden" name="price" value="${requestScope.goods.price}">
+                <button  type="submit" class="btn btn-default">加入购物车</button>
+        </form>
+            </p>
         </div>
     </div>
 </div>

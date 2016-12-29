@@ -16,7 +16,9 @@
             <li><a href="#" class="text-muted">我的淘宝</a> <span class="caret"></span></li>
             <li><a href="#" class="text-muted">我关注的品牌</a>
                 <span class="glyphicon glyphicon-heart"></span></li>
-            <li><span class="glyphicon glyphicon-shopping-cart"></span> <a href="#" class="text-muted">购物车0件</a>
+            <li><span class="glyphicon glyphicon-shopping-cart">
+
+            </span> <a href="/showShoppingCart" class="text-muted">购物车${sessionScope.count}件</a>
             </li>
             <li><a href="#" class="text-muted">收藏夹</a><span class="caret"></span></li>
             <li><span class="text-muted">|</span></li>

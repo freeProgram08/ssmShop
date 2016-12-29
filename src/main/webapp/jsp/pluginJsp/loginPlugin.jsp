@@ -8,7 +8,7 @@
                 <h4 class="modal-title">用户登录</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" action="/login" method="post">
+                <form class="form-horizontal" action="/login" method="post" id="loginForm">
                     <div class="form-group">
                         <label class="col-xs-3">用户名</label>
                         <div class="col-xs-9">
@@ -25,7 +25,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default">登录</button>
+                <button type="button" class="btn btn-default" id="login">登录</button>
                 <button type="button" class="btn btn-primary">取消</button>
             </div>
         </div><!-- /.modal-content -->
@@ -56,6 +56,9 @@
         })
         $(".btn-primary").click(function () {
             $("#modal").modal("hide");
+        })
+        $("#login").click(function () {
+            $("#loginForm").submit();
         })
     })
 </script>
