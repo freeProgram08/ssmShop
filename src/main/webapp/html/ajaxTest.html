@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js发送http请求示例</title>
+</head>
+<body>
+<script>
+    /*获取js发送http请求工具对象*/
+    var xmlhttp;//请求工具对象变量
+    //做了一个浏览器兼容，不同的浏览器
+    //创建工具对象的方式不同
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    //发送http请求
+    //state：true同步  false 异步
+    //同步：请求未响应js代码不会往下执行
+    //异步：只管发送请求不管是否响应，继续往下执行
+    //open(method,url,state)设定请求参数
+    xmlhttp.open("GET","/test1.xml",true);
+    //真正发送请求
+    xmlhttp.send();
+    xmlhttp.onreadystatechange=function () {
+       /* readyState 请求状态码，只有值为4的时候才是真正被处理完全了
+        status 响应状态码  只有是200 该请求才是被正确响应了*/
+        if(xmlhttp.readyState==4&&xmlhttp.status==200){
+            //当上述条件都满足才是一个能取值的时间点
+            //接受请求返回内容
+            // response responseText  这两个肯定有值
+            //responseXML 必须返回的是一个xml文件 才有值
+           var str=xmlhttp.response;
+            alert(str);
+        }
+    }
+    alert("end")
+</script>
+</body>
+</html>
