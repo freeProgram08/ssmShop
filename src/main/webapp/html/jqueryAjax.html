@@ -7,10 +7,12 @@
 </head>
 <body>
 
-<div id="test">你好</div>
+<div >你好</div>
 <div id="content">
 
 </div>
+
+<button id="test">点我</button>
 <script>
     //$.ajax(settings)
     /*
@@ -39,11 +41,13 @@
     //并按照类型转换成相匹配的数据格式
     //绑定方法的第一个参数就是响应返回的数据
     $("#test").on("click",function () {
-        $.get("http://localhost:8080/test1.txt").success(function (data) {
+        //js在发请求的时候
+        //若多次发送同一地址的请求
+        //网址未改变，它会从缓存中获取
+        $.get("http://localhost:8080/test1.txt?"+Math.random()).success(function (data) {
             $("#content").html(data)
         })
     })
 </script>
-<button>点我</button>
 </body>
 </html>
