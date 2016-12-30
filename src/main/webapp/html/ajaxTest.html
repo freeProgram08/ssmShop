@@ -19,9 +19,9 @@
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     //发送http请求
-    //state：true同步  false 异步
-    //同步：请求未响应js代码不会往下执行
-    //异步：只管发送请求不管是否响应，继续往下执行
+    //state：true异步 false同步
+    //同步：请求未响应完成js代码不会往下执行
+    //异步：只管发送请求不管是否响应完成，继续往下执行
     //open(method,url,state)设定请求参数
     xmlhttp.open("GET","/test1.xml",true);
     //真正发送请求

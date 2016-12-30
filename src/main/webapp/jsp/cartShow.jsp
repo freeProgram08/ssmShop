@@ -265,9 +265,9 @@
                                                             <div class="amount-wrapper amount-has-error">
                                                                 <div class="item-amount ">
                                                                     <a href="#" class="J_Minus no-minus">-</a>
-                                                                    <input
+                                                                    <input  onchange="foo(this)"
                                                                         type="text" value="${cart.count}"
-                                                                        class="text text-amount J_ItemAmount">
+                                                                        class="text text-amount J_ItemAmount"  id="${cart.id}">
                                                                     <a href="#" class="J_Plus plus">+</a>
                                                                 </div>
                                                                 <div class="amount-msg J_AmountMsg"><em
@@ -368,6 +368,29 @@
 
 </div>
 
-
+<script>
+function foo(dome) {
+        var val = dome.value;
+        var xmlhttp;//请求工具对象变量
+        //做了一个浏览器兼容，不同的浏览器
+        //创建工具对象的方式不同
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        //open(method,url,state)设定请求参数
+        //state true 代表异步 false代表同步
+         var url="/updateCountById?id=1&count="+val;
+        xmlhttp.open("GET",url,false);
+        xmlhttp.send();//同步下的状态，它会请求状态一直处理到4为止
+        //在异步状态下它只处理到1
+        var str=xmlhttp.response;
+        alert(str)
+    }
+</script>
 </body>
 </html>
