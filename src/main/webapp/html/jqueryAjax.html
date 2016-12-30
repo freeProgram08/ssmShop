@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用jquery ajax功能</title>
+    <script type="text/javascript" src="../js/jquery-1.12.3.min.js"></script>
+</head>
+<body>
+
+<div id="test">你好</div>
+<div id="content">
+
+</div>
+<script>
+    //$.ajax(settings)
+    /*
+     settings:js对象{} 是设置请求参数用的
+     如：type请求方式（get/post）
+     url发送请求网址
+     params请求传递参数值
+     cache同异步设定 true 异步 false同步
+     dataType指定响应数据返回类型：
+     text 纯文本字符串
+     html  js标签对象
+     json   js json格式对象
+     xml   js xml 格式对象
+     script      导入脚本
+     success请求成功被响应调用方法
+     */
+    /*    $.ajax({
+     type:'get',
+     url:"http://localhost:8080/test1.xml",
+     dataType:"text",
+     success:function (msg) {
+     alert(msg)
+     }
+     })*/
+    //在未指定转换类型的情况下，jquery会自动判别资源类型
+    //并按照类型转换成相匹配的数据格式
+    //绑定方法的第一个参数就是响应返回的数据
+    $("#test").on("click",function () {
+        $.get("http://localhost:8080/test1.txt").success(function (data) {
+            $("#content").html(data)
+        })
+    })
+</script>
+<button>点我</button>
+</body>
+</html>
