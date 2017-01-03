@@ -132,7 +132,7 @@
                         <span class="pay-text">已选商品</span>
                         <strong class="price">
                             <em><span class="total-symbol">&nbsp;</span>0.00</em>
-                        </strong><a class="submit-btn submit-btn-disabled">结&nbsp;算</a>
+                        </strong><a class="submit-btn ">结&nbsp;算</a>
                     </div>
                     <div class="wrap-line">
                         <div class="floater" style="width: 123px; left: -1px;"></div>
@@ -144,7 +144,7 @@
                         <div class="wp">
                             <div class="th th-chk">
                                 <div class="select-all J_SelectAll">
-                                    <div class="cart-checkbox cart-checkbox-checked">
+                                    <div class="cart-checkbox">
                                         <input id="checkAll" class="J_CheckBoxShop" type="checkbox"><label>勾选购物车内所有商品</label>
                                     </div>
                                     &nbsp;&nbsp;全选
@@ -315,15 +315,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="poolorder-info">
-                            <div class="wrap"><span
-                                    class="text"><span>再买18.30元，“满69.00元享包邮”，</span><span>该店铺商品合计：</span><span
-                                    class="symbol">￥</span><span class="price">50.70</span></span><span
-                                    class="go-pool"><a href="javascript:;" id="J_GoPool">去凑单</a><span
-                                    class="arrow"></span></span></div>
-                            <div class="poolorder-content hidden"><img
-                                    src="//gtd.alicdn.com/tps/i2/T1Q2BUXaxFXXXXXXXX-32-32.gif"></div>
                         </div>
                     </div>
                 </div>
