@@ -13,7 +13,7 @@ $(document).ready(function () {
     })
     /*绑定全选按钮事件*/
     /*parent获取上一层标签*/
-    $("#checkAll").parent().click(function () {
+    $(".select-all .cart-checkbox").click(function () {
         /*判别依据变更 div是否具有cart-checkbox-checked样式*/
         /*hasClass 判别是否具有某指定样式*/
         if($(this).hasClass("cart-checkbox-checked")){
@@ -21,6 +21,8 @@ $(document).ready(function () {
         }else{
             $(".cart-checkbox").addClass("cart-checkbox-checked");
         }
+        /*调用重新计算价格*/
+        sumMoney()
     })
    /* 设置单选*/
    $(".J_Order .cart-checkbox").click(function () {
@@ -29,11 +31,13 @@ $(document).ready(function () {
        }else{
            $(this).addClass("cart-checkbox-checked")
        }
+    /*   调用重新计算价格*/
+       sumMoney()
    })
-    $(".submit-btn").click(function () {
-        sumMoney()
-    })
-    $(".text-amount").change(function () {
+
+    /*联动单件商品数量，导致价格更改联动效果*/
+  /*  on(字符串事件集合,绑定方法)用于绑定多个事件*/
+    $(".item-amount input").on("change focus blur",function () {
      /*   取出goods-id编号*/
         var id = $(this).attr("goods-id");
         /*取出变化后的值*/
@@ -52,6 +56,40 @@ $(document).ready(function () {
         var sum=eval(price*value);
         /*赋值总价格*/
         $(str).text("￥"+sum+".00");
+     /*   调用重新计算*/
+        sumMoney()
+    })
+  /*  绑定减号点击事件联动*/
+    $(".J_Minus").click(function () {
+        /*定位到数量框*/
+        var $input = $(this).parent().find("input");
+        /*取出数量框当前的值*/
+        var count = $input.val();
+        if(count==1){//不能再减少
+            return;
+        }else{
+            count--;
+            /*重新赋值数量*/
+           /* val赋值不能激活change事件*/
+            $input.val(count)
+          /*  人工激活对应change事件*/
+            $input.change();
+        }
+    })
+    /*  绑定加号点击事件联动*/
+    $(".J_Plus").click(function () {
+        /*定位到数量框*/
+        var $input = $(this).parent().find("input");
+        /*取出数量框当前的值*/
+        var count = $input.val();
+        if(count==20){//不能再减少
+            return;
+        }else{
+            count++;
+            /*重新赋值数量*/
+            $input.val(count)
+            $input.change();
+        }
     })
 })
 
@@ -73,9 +111,19 @@ function sumMoney() {
     var $price = $(".price em");
     $price.text("￥"+sum+".00");
 }*/
+/*结算选中商品总价*/
 function sumMoney(){
     /*得到所有的选中选择框*/
     var goodsList = $(".bundle-main .cart-checkbox-checked input");
+    /*判断是否存在已选商品*/
+    if(goodsList==undefined||goodsList==null||goodsList.length==0){
+        $("#J_SelectedItemsCount").text(0);
+        var $price = $(".price em");
+        $price.text("￥0.00");
+        return;
+    }else{
+        $("#J_SelectedItemsCount").text(goodsList.length);
+    }
     var sum=0;
    /* $.each(集合,循环体)
     将集合里的元素传入循环体，保证都遍历一次*/

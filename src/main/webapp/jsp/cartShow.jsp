@@ -270,7 +270,7 @@
                                                         <div class="td-inner">
                                                             <div class="amount-wrapper amount-has-error">
                                                                 <div class="item-amount ">
-                                                                    <a href="#" class="J_Minus no-minus">-</a>
+                                                                    <a href="#" class="J_Minus minus">-</a>
                                                                     <input type="text" value="${cart.count}"
                                                                         class="text text-amount J_ItemAmount"
                                                                            goods-id="${cart.id}">
