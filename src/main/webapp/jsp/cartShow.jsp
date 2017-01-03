@@ -7,6 +7,9 @@
     <link href="//www.taobao.com/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" href="/css/tb_global.css">
     <link rel="stylesheet" href="/css/tb_cart.css">
+    <%--导入jquery组件--%>
+    <script type="text/javascript" src="/js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="/js/diy/cart.js"></script>
 </head>
 <body>
 
@@ -16,14 +19,14 @@
     <div class="site-nav">
         <div class="site-nav-bd">
             <ul class="site-nav-bd-l">
-                <li class="J_Menu menu my-taobao menu-hover">
+                <li class="J_Menu menu my-taobao menu-empty" id="userMenu">
                     <div class="menu-hd ">
-                        <a class="login-info-nick">我爱0天下</a>
+                        <a class="login-info-nick">${sessionScope.user.userName}</a>
                         <span class="arrow-icon-wrapper">
                            <span class="g-icon arrow-icon"></span>
                        </span>
                     </div>
-                    <div class="menu-bd menu-list" style="display: block">
+                    <div class="menu-bd menu-list" >
                         <div class="menu-bd-panel">
                             <a>个人资料</a>
                             <a>注销</a>
@@ -142,7 +145,7 @@
                             <div class="th th-chk">
                                 <div class="select-all J_SelectAll">
                                     <div class="cart-checkbox cart-checkbox-checked">
-                                        <input class="J_CheckBoxShop" type="checkbox"><label>勾选购物车内所有商品</label>
+                                        <input id="checkAll" class="J_CheckBoxShop" type="checkbox"><label>勾选购物车内所有商品</label>
                                     </div>
                                     &nbsp;&nbsp;全选
                                 </div>
