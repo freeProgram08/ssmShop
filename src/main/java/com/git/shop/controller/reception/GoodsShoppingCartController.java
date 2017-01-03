@@ -7,6 +7,7 @@ import com.git.shop.service.GoodsShoppingCartService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -45,5 +46,18 @@ public class GoodsShoppingCartController {
         List<GoodsShoppingCart> result = cartService.showShoppingCart(req);
         req.setAttribute("cartList",result);
         return "cartShow";
+    }
+
+    @RequestMapping(path="/editCountById")
+    //将交给视图的权限回收，自己负责怎么响应
+    @ResponseBody
+    public void editCountById(Integer id,Integer goodsCount){
+        /*将参数包装成对应对象*/
+        GoodsShoppingCart cart = new GoodsShoppingCart();
+        /*是购物车记录唯一性识别，非商品id*/
+        cart.setId(id);
+        cart.setCount(goodsCount);
+        /*执行更改*/
+        cartService.editShoppingCountById(cart);
     }
 }

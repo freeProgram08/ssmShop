@@ -202,7 +202,7 @@
                                                                 <input class="J_CheckBoxItem"
                                                                        goods-price="${cart.goodsPrice}"
                                                                        goods-count="${cart.count}"
-                                                                       goods-id="${cart.id}">
+                                                                       shopping-id="${cart.id}">
                                                                 <label>勾选商品</label>
                                                             </div>
                                                         </div>
@@ -270,11 +270,11 @@
                                                         <div class="td-inner">
                                                             <div class="amount-wrapper amount-has-error">
                                                                 <div class="item-amount ">
-                                                                    <a href="#" class="J_Minus minus">-</a>
+                                                                    <a class="J_Minus minus">-</a>
                                                                     <input type="text" value="${cart.count}"
                                                                         class="text text-amount J_ItemAmount"
-                                                                           goods-id="${cart.id}">
-                                                                    <a href="#" class="J_Plus plus">+</a>
+                                                                           shopping-id="${cart.id}">
+                                                                    <a  class="J_Plus plus">+</a>
                                                                 </div>
                                                                 <div class="amount-msg J_AmountMsg"><em
                                                                         class="s-danger-text">限购20件</em>
@@ -284,7 +284,7 @@
                                                     </li>
                                                     <li class="td td-sum">
                                                         <div class="td-inner"><em tabindex="0"
-                                                                                  goods-id="${cart.id}"
+                                                                                  shopping-id="${cart.id}"
                                                                                   goods-price="${cart.goodsPrice}"
                                                                                   class="J_ItemSum number">￥${cart.goodsPrice*cart.count}</em>
                                                             <div class="J_ItemLottery"></div>

@@ -83,4 +83,14 @@ public class GoodsShoppingCartService {
          }
         return result;
     }
+
+    /**
+     * 根据id修改对应购物车商品数量
+     * 注：id，count属性不能为空
+     * @param goodsShoppingCart 包含修改信息购物车商品对象
+     * @return true成功 false 失败
+     */
+    public boolean editShoppingCountById(GoodsShoppingCart goodsShoppingCart){
+        return shoppingCartDao.updateById(goodsShoppingCart);
+    }
 }

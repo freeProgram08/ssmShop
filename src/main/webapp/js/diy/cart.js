@@ -34,22 +34,21 @@ $(document).ready(function () {
     /*   调用重新计算价格*/
        sumMoney()
    })
-
     /*联动单件商品数量，导致价格更改联动效果*/
   /*  on(字符串事件集合,绑定方法)用于绑定多个事件*/
-    $(".item-amount input").on("change focus blur",function () {
-     /*   取出goods-id编号*/
-        var id = $(this).attr("goods-id");
+    $(".item-amount input").on("change",function () {
+     /*   取出shopping-id编号*/
+        var id = $(this).attr("shopping-id");
         /*取出变化后的值*/
         var value=$(this).val();
        /* 定位要联动的多选框*/
-        var str=".cart-checkbox input[goods-id="+id+"]"
+        var str=".cart-checkbox input[shopping-id="+id+"]"
         /*获取多选框jquery对象*/
         var $2 = $(str);
         /*更改联动多选框count属性值*/
         $2.attr("goods-count",value);
        /* 定位单个商品和*/
-        str=".td-sum em[goods-id="+id+"]"
+        str=".td-sum em[shopping-id="+id+"]"
         /*获取价格*/
         var price = $(str).attr("goods-price");
         /*计算总价*/
@@ -58,6 +57,8 @@ $(document).ready(function () {
         $(str).text("￥"+sum+".00");
      /*   调用重新计算*/
         sumMoney()
+        /*同步服务器*/
+        editCountToServer(id,value);
     })
   /*  绑定减号点击事件联动*/
     $(".J_Minus").click(function () {
@@ -136,4 +137,13 @@ function sumMoney(){
     })
     var $price = $(".price em");
     $price.text("￥"+sum+".00");
+}
+/* 更改单个商品数量，同步到服务器*/
+function editCountToServer(id,count) {
+    var data="id="+id+"&goodsCount="+count;
+    $.ajax({
+        type:'post',
+        url:"/editCountById",
+        data:data
+    })
 }
